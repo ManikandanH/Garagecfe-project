@@ -1,0 +1,144 @@
+<div class="container" id="printingInvoice">
+    <div >
+      <div class="row">
+        <div class="col-xs-7 col-sm-7 col-md-7">
+          <strong> {{currentDate}}</strong>
+        </div>
+        <div class="col-xs-5 col-sm-5 col-md-5">
+          <strong> {{currentTime}}</strong>
+        </div>
+      </div>
+      <br/>
+      <div class="container">
+        <div class="row">
+          <h6 style="text-align: center">
+            <div>
+              <strong >
+                Hindustan University
+              </strong>
+            </div>
+            <div>
+              Garage Cafe
+            </div>
+            <div>
+                1, Rajiv Gandhi Salai, Old Mahabalipuram Road, Padur, 
+            </div>
+            <div>
+              Kelambakkam, chennai, Tamil nadu - 603103
+            </div>
+          </h6>
+        </div>
+      </div>
+      <hr style="height: 3px; background-color:black;color:black" />
+      <div class="row">
+        <table  class="table table-striped">
+          <thead>
+            <tr >
+              <th id="fontSizeHeading" class="left">Item</th>
+              <th id="fontSizeHeading" class="center">Qty</th>
+              <th id="fontSizeHeading" class="right">Price</th>
+            </tr>
+          </thead>
+          <tbody  *ngFor="let i of billDetails.itemDetails ; let j = index">
+            <td id="bodyFontSize" class="left">
+              {{i.name}} {{(i.subCategory)}}
+            </td>
+            <td id="bodyFontSize" class="center">
+              {{i.quantity}}
+            </td>
+            <td id="bodyFontSize" class="right">
+              ₹ {{i.price}}
+            </td>
+          </tbody>
+        </table>
+      </div>
+      <hr style="height: 3px; background-color:black;color:black" />
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6"></div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <p id="fontSizeHeading">
+            Total :
+          </p> <strong id="bodyFontSize" style="margin-left:6px">
+            ₹ {{billDetails.totalCost}}</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<div class="container">
+  <div >
+    <div class="row">
+      <div class="col-xs-7 col-sm-7 col-md-7">
+        <strong> {{currentDate}}</strong>
+      </div>
+      <div class="col-xs-5 col-sm-5 col-md-5">
+        <strong> {{currentTime}}</strong>
+      </div>
+    </div>
+    <br/>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <h5>
+            Garage Cafe
+          </h5>
+        </div>
+        <div class="col-xs-5 col-sm-5 col-md-5">
+         <strong> BillNo </strong> : {{billNumber}}
+        </div>
+      </div>
+    </div>
+
+    <hr style="height: 3px; background-color:black;color:black" />
+    <div class="row">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="left">Item</th>
+            <th class="center">Qty</th>
+            <th class="right">Price</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let i of billDetails.itemDetails ; let j = index">
+          <td class="left">
+            {{i.name}} {{(i.subCategory)}}
+          </td>
+          <td class="center">
+            {{i.quantity}}
+          </td>
+          <td class="right">
+            ₹ {{i.price}}
+          </td>
+        </tbody>
+      </table>
+    </div>
+    <hr style="height: 3px; background-color:black;color:black" />
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6"></div>
+      <div class="col-xs-6 col-sm-6 col-md-6">
+        Total : <strong style="margin-left:6px">
+          ₹ {{billDetails.totalCost}}</strong>
+      </div>
+    </div>
+  </div>
+</div>
+<br/>
+<div class="container">
+  <div class="row" *ngIf="!secondTimePrint">
+    <div class="col-xs-4 col-sm-4 col-md-4">
+      <button (click)="cancel() " mat-raised-button color="warn">
+        Cancel
+      </button>
+    </div>
+            <div class="col-xs-4 col-sm-4 col-md-4"></div>
+    <div class="col-xs-4 col-sm-4 col-md-4">
+      <button (click)="print('printingInvoice')" mat-raised-button color="accent">
+     Print & Save
+   </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row" class="form-group">
+      <div>
+        <label>
+            Name of the Item 
+          </label>
+        <input #name  type="text" placeholder="Name" value="{{details.name}}" class="form-control" />
+        <br/>
+  
+        <label>
+            Category 
+          </label>
+        <mat-form-field>
+          <mat-select disabled [value]='details.category' placeholder="Category" #category>
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+              {{food.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br/>
+  
+        <label>
+            Price 
+          </label>
+        <input type="text" value="{{details.price}}"  #price placeholder="Price" class="form-control" />
+        <br/>
+        <button mat-raised-button color="primary" (click)="onCloseConfirm(name.value,category.value,price.value)">Add</button>
+      </div>
+    </div>
+  
+  </div>

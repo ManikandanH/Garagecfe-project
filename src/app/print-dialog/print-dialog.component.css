@@ -1,0 +1,53 @@
+/* 
+
+
+
+
+@page {
+  size: B5;
+  margin: 0;
+  width: 10cm;
+  min-height: 3cm;
+  scale: 200;
+  padding: 2cm;
+  margin: 1cm auto;
+  border: 1px #D3D3D3 solid;
+  font-size: 30px;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+@media print {
+  .page {
+    width: 10cm;
+    min-height: 2cm;
+    padding: 2cm;
+    scale: 200;
+    font-size: 30px;
+    margin: 1cm auto;
+    border: 1px #D3D3D3 solid;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+} */
+
+@media screen {
+  #printingInvoice {
+    display: none;
+  }
+}
+@media print {
+  #printingInvoice {
+    display: none;
+  }
+}
+#fontSizeHeading {
+  font-size: 42px;
+}
+
+#bodyFontSize{
+  font-size: 36px;
+
+}

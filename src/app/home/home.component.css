@@ -1,0 +1,11 @@
+.parallex {
+    min-height: 100%;
+    min-width: 100%;
+    background: url('../../assets/image2.jpg');
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  

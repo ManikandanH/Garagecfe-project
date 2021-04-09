@@ -1,0 +1,96 @@
+<br/>
+<div class="container" id="main">
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4">
+        <a mat-stroked-button routerLink="/home">Home</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4">
+      <h2 style="text-align: center">
+        <strong>Billing Invoice</strong>
+      </h2>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4" *ngIf="billingFlag">
+      <div style="text-align: right">
+          Add Items
+        <button routerLink="/home/juice" mat-mini-fab color="primary">+</button>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div class=" table-responsive-xs table-responsive-md" *ngIf="billingFlag">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th >Item</th>
+          <th class="left">Cost</th>
+          <!-- <th class="right"></th> -->
+          <th class="center">Qty</th>
+          <th class="right">Total</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let i of billingItems ; let j = index">
+        <tr>
+          <td class="left">
+            <div>
+              {{i.name}}</div>
+            <div>{{(i.subCategory)}}</div>
+          </td>
+          <td class="left"><strong> ₹ {{i.newPrice}}</strong></td>
+          <td class="right">
+            <div>
+              <span>
+                <input [disabled]="true" type="text" class="inputButton" [value]="i.quantity" />
+                
+              </span>
+              <span>
+                <button (click)="decrease(i,j)" class="quanButton">-</button>
+                
+              </span>
+              <span>
+                <button (click)="increase(i,j)" class="quanButton">+</button>
+                
+              </span>
+            </div>
+          </td>
+          <td class="left"><strong>₹ {{i.price}}</strong></td>
+          <td class="left">
+            <button (click)="remove(i,j)" class="btn btn-danger btn-sm">
+                                X
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4"></div>
+
+      <div class="col-lg-4 col-sm-4 col-md-4 ">
+        <table class="table table-clear">
+          <tbody>
+            <tr>
+              <td class="left">
+                Subtotal
+              </td>
+              <td class="left"><strong>₹ {{total}}</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <br/>
+    <div class="row">
+      <div class="col-xs-5 col-sm-5 col-md-5"></div>
+      <div class="col-xs-4 col-sm-4 col-md-4">
+        <button (click)="checkout()" mat-stroked-button color="primary">
+          Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div *ngIf="!billingFlag">
+    <h4 style="text-align: center">
+      There are no items for the billing
+    </h4>
+  </div>
+</div>

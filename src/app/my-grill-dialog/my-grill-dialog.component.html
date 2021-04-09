@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row" class="form-group">
+      <div>
+        <label>
+          Please select Full or Half
+        </label>
+        <mat-form-field>
+          <mat-select   placeholder="Category" #category>
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+              {{food.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br/>
+        <br/>
+        <button mat-raised-button color="primary" 
+        (click)="onCloseConfirm(category.value)">Proceed</button>
+      </div>
+    </div>
+  
+  </div>

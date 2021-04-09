@@ -1,0 +1,41 @@
+<div class="parallex">
+  <div
+    class="row"
+    style="background-color:#0d1648;text-align:center;color:white;font-size:30px;border-radius:2px"
+  >
+    <div class=" col-xs-2 col-sm-2 col-md-2 ">
+      <button mat-button routerLink="juice">Juices</button>
+    </div>
+    <div class="col-xs-2 col-sm-2 col-md-2 ">
+      <button mat-button routerLink="chats">Chats</button>
+    </div>
+    <div class="col-xs-2 col-sm-2 col-md-2">
+      <button mat-button routerLink="grill">Grills</button>
+    </div>
+    <div class="col-xs-2 col-sm-2 col-md-2">
+      <button mat-button routerLink="shawarma">Shawarma</button>
+    </div>
+    <div class="col-xs-2 col-sm-2 col-md-2">
+      <button mat-stroked-button (click)="addItem()" color="accent">
+        Add Item
+      </button>
+    </div>
+    <div class="col-xs-1 col-sm-1 col-md-1">
+      <button mat-stroked-button color="warn" routerLink="/billing">
+        Billing
+      </button>
+    </div>
+    <div class="col-xs-1 col-sm-1 col-md-1">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button (click)="datas()" mat-menu-item><span>
+          Summary
+        </span></button>
+        <button (click)="logout()" mat-menu-item><span>logout</span></button>
+      </mat-menu>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>
